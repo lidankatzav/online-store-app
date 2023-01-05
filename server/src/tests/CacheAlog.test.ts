@@ -21,6 +21,7 @@ describe('FIFO Cache Algorithm', () => {
     cache.setElement('a', 1);
     cache.setElement('b', 2);
     expect(cache.removeElement('a')).to.be.true;
+    expect(cache.removeElement('a')).to.be.false;
     expect(cache.getElement('a')).to.be.undefined;
     expect(cache.getElement('b')).to.equal(2);
   });
