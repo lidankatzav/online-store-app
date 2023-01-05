@@ -35,14 +35,3 @@ export class FIFO<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,V>
     }
 
 }
-
-// const fifo1 = new FIFO(5);
-// fifo1.setElement(0, 'hello0');
-// fifo1.setElement(1, 'hello1');
-// fifo1.setElement(2, 'hello2');
-// fifo1.setElement(3, 'hello3');
-// fifo1.setElement(4, 'hello4');
-// console.log(fifo1.setElement(4, 'hello4'));
-// console.log(fifo1.setElement(5, 'hello4'));
-// console.log(fifo1.getElement(2));
-// console.log(fifo1.cacheData);
