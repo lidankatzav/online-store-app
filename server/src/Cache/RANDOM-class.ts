@@ -5,6 +5,7 @@ import {randomArrIndex} from './AlgoFunctions';
 
 export class Random<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,V>{
 
+    //array that contains all cacheData keys
     #keysArr: K[] = new Array<K>(this.cacheSize);
 
     
@@ -27,9 +28,11 @@ export class Random<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,
             let keyToReplaceIndex = this.#keysArr.indexOf(keyToReplace);
             this.#keysArr.splice(keyToReplaceIndex, 1);
 
+            //insert new key to cache and keysArr
             this.cacheData.set(key, value);
             this.#keysArr.push(key);
             
+            //return key that was deleted
             return keyToReplace;
             
         }
@@ -49,7 +52,7 @@ export class Random<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,
             this.#keysArr.splice(keyIndex, 1);
             return true;
         }
-        
+
         return false;
     }
 }
