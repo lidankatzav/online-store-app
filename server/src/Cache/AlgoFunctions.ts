@@ -1,4 +1,4 @@
 
 export function randomArrIndex(cacheSize: number){
-    return Math.floor(Math.random() * this.cacheSize+1);
+    return Math.floor(Math.random() * cacheSize+1);
 }
