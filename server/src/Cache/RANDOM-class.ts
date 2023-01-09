@@ -9,11 +9,12 @@ export class Random<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,
     #keysArr: K[] = new Array<K>(this.cacheSize);
 
     
-    setElement(key: K, value: V): K {
+    setElement(key: K, value: V): K | undefined {
         
         // Check if the key already exists
         if(this.getElement(key) !== undefined){
-            this.cacheData.set(key, value);
+            this.removeElement(key);
+            this.setElement(key,value);
             return key;
         }
 
@@ -21,7 +22,7 @@ export class Random<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,
         if(this.cacheData.size === this.cacheSize){
 
             //find random key to remove
-            let keyToReplace = this.#keysArr[randomArrIndex(this.cacheSize)];
+            const keyToReplace = this.#keysArr[randomArrIndex(this.cacheSize)];
 
             //remove it and update keysArr
             this.cacheData.delete(keyToReplace);
@@ -38,9 +39,9 @@ export class Random<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,
         }
 
         // Update Key, Value
-        this.setElement(key, value);
+        this.cacheData.set(key, value);
         this.#keysArr.push(key);
-
+        return;
     }
 
     removeElement(key: K): boolean {
