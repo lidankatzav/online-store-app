@@ -41,3 +41,4 @@ export class Random<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,
     }
 
 }
+
