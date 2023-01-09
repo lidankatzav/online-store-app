@@ -1,29 +1,32 @@
 import {ICacheAlgo, AbstractCacheAlgo} from './AbstractCacheAlgo';
-
+import {LinkedListNode} from "./DoubleLinkedList";
 export class FIFO<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,V> {
 
 
     setElement(key: K, value: V): K | undefined {
 
-        // Check if the key already exists
+        // If the key already exists.
         if(this.getElement(key) !== undefined) {
             this.removeElement(key);
             this.setElement(key,value);
             return key;
         }
 
-        // Check if the cache is full
-        if(this.keysArray.length === this.cacheSize) {
-            const removedKey = this.keysArray.shift();
-            this.cacheData.delete(removedKey);
-            this.cacheData.set(key, value);
-            this.keysArray.push(key);
-            return removedKey;
+        // If the cache is full.
+        if(this.cacheData.getSize() === this.cacheSize) {
+            const firstNodeToRemove =  this.cacheData.getHead();
+            this.cacheData.remove(firstNodeToRemove);
+            this.cacheMap.delete(firstNodeToRemove.element.key);
+            const newNode = new LinkedListNode({key, value});
+            this.cacheData.push(newNode);
+            this.cacheMap.set(key, newNode);
+            return firstNodeToRemove.element.key;
         }
 
-        // Update Key, Value
-        this.cacheData.set(key, value);
-        this.keysArray.push(key);
+        // Update Key, Value.
+        const newNode = new LinkedListNode({key, value});
+        this.cacheData.push(newNode);
+        this.cacheMap.set(key, newNode);
         return;
     }
 }

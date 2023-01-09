@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { DoubleLinkedList, LinkedListNode } from '../Cache/Linkedlist';
+import { DoubleLinkedList, LinkedListNode } from '../Cache/DoubleLinkedList';
 
 describe('DoubleLinkedList', () => {
   let list: DoubleLinkedList<number>;
@@ -48,7 +48,7 @@ describe('DoubleLinkedList', () => {
     expect(node3.prev).to.equal(node1);
   });
 
-  it('should remove the getHead and getTail node from the list', () => {
+  it('should remove the head and tail node from the list', () => {
     const node1 = new LinkedListNode(1);
     const node2 = new LinkedListNode(2);
     list.push(node1);
