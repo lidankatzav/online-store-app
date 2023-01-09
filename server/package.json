@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "tsnd --respawn src/index.ts",
     "build": "tsc",
-    "start": "ts-node src/Cache/LinkedList.ts",
+    "start": "ts-node src/index.ts",
     "test": "mocha -r ts-node/register src/tests/*.test.ts"
   },
   "license": "ISC",

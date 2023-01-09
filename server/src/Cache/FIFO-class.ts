@@ -14,9 +14,13 @@ export class FIFO<K,V> extends AbstractCacheAlgo<K,V> implements ICacheAlgo<K,V>
 
         // If the cache is full.
         if(this.cacheData.getSize() === this.cacheSize) {
+
+            // Remove first key.
             const firstNodeToRemove =  this.cacheData.getHead();
             this.cacheData.remove(firstNodeToRemove);
             this.cacheMap.delete(firstNodeToRemove.element.key);
+
+            // Update key, value.
             const newNode = new LinkedListNode({key, value});
             this.cacheData.push(newNode);
             this.cacheMap.set(key, newNode);
