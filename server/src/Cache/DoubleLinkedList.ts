@@ -1,4 +1,3 @@
-
 export class LinkedListNode<T> {
 
     public element: T;
@@ -96,6 +95,4 @@ export class DoubleLinkedList<T>  {
         this.size -= 1;
         return;
     }
-
-    
 }
