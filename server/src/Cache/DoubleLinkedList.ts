@@ -38,7 +38,7 @@ export class DoubleLinkedList<T>  {
     
     push(node: LinkedListNode<T>): void {
 
-        // Add a node when list if empty.
+        // Add a node when the list is empty.
         if(this.head === null) {
             this.head = node;
             this.tail = node;
@@ -96,5 +96,6 @@ export class DoubleLinkedList<T>  {
         this.size -= 1;
         return;
     }
+
     
 }

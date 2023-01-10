@@ -19,7 +19,7 @@ export abstract class AbstractCacheAlgo<K,V>  {
 
     getElement(key: K): V | undefined {
 
-        // Check if the key exists
+        // If the key exists.
         if(this.cacheMap.get(key)) {
             return this.cacheMap.get(key).element.value;
         }
@@ -29,7 +29,7 @@ export abstract class AbstractCacheAlgo<K,V>  {
 
     removeElement(key: K): boolean {
         
-        // Check if the key exists
+        // If the key exists.
         if(this.cacheMap.get(key)){
             this.cacheData.remove(this.cacheMap.get(key));
             this.cacheMap.delete(key);
