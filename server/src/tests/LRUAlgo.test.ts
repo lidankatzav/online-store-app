@@ -30,7 +30,7 @@ describe('LRU Cache Algorithm', () => {
     expect(lru.getElement(1)).to.be.undefined;
   });
 
-  it('should remove least recently used element when cache is full', () => {
+  it('should remove LRU element when cache is full', () => {
     lru.setElement(1, 'a');
     lru.setElement(2, 'b');
     lru.setElement(3, 'c');
@@ -38,7 +38,7 @@ describe('LRU Cache Algorithm', () => {
     expect(lru.getElement(1)).to.be.undefined;
   });
 
-  it('should update element to least recently used when accessed', () => {
+  it('should update element to LRU when accessed', () => {
     lru.setElement(1, 'a');
     lru.setElement(2, 'b');
     lru.setElement(3, 'c');
